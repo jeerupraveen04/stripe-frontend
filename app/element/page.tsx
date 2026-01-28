@@ -19,7 +19,7 @@ export default function CheckoutPage() {
     };
 
     return (
-        <div className="min-h-screen bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-slate-100 via-purple-100 to-pink-100 font-sans antialiased">
+        <div className="min-h-screen bg-gradient-to-br from-purple-500 via-pink-300 to-pink-200 font-sans antialiased">
             {/* Header */}
             <header className="w-full bg-white/70 backdrop-blur-xl border-b border-white/20 sticky top-0 z-50">
                 <div className="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
@@ -43,7 +43,7 @@ export default function CheckoutPage() {
 
                 {/* 🔧 Controls Card */}
                 <div className="w-full max-w-lg bg-white/60 backdrop-blur-md rounded-3xl shadow-xl shadow-indigo-100/50 border border-white p-8 transition-all hover:shadow-2xl hover:shadow-indigo-200/40">
-                    <h2 className="text-sm font-bold text-indigo-900/40 uppercase tracking-widest mb-6">
+                    <h2 className="text-sm font-bold text-gray-900 uppercase tracking-widest mb-6">
                         Payment Configuration
                     </h2>
 

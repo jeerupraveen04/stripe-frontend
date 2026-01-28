@@ -10,6 +10,8 @@ type CheckoutForm = {
   currency: string;
   description: string;
   country: string;
+  type?: string;
+  paymentmethodType: string;
 };
 
 export default function CheckoutPage() {
@@ -41,6 +43,8 @@ export default function CheckoutPage() {
           currency: data.currency,
           customerEmail: data.email,
           customerCountry: data.country,
+          paymentMethod: data.paymentmethodType,
+          type:'checkout',
         }),
       });
 
@@ -106,6 +110,24 @@ export default function CheckoutPage() {
             {errors.email && (
               <p className="text-red-500 text-sm">Email is required</p>
             )}
+          </div>
+
+          {/* Payment Method */}
+          <div>
+            <label
+              htmlFor="paymentmethod-select"
+              className="block text-sm font-medium mb-1 text-gray-700"
+            >
+              Payment Method
+            </label>
+            <select
+              id="paymentmethod-select"
+              {...register("paymentmethodType", { required: true })}
+              className="w-full rounded-lg border px-4 py-2 text-black"
+            >
+              <option value="checkout">Checkout</option>
+              <option value="bank_transfer">Bank Transfer</option>
+            </select>
           </div>
 
           {/* Amount */}

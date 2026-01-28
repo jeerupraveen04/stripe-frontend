@@ -52,7 +52,7 @@ export default function CheckoutForm({
                 elements,
                 clientSecret: data.clientSecret,
                 confirmParams: {
-                    return_url: `${window.location.origin}/payment/success`,
+                    return_url: `${process.env.NEXT_PUBLIC_FRONTEND_URL}/status`,
                 },
             });
 

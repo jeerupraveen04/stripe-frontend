@@ -4,6 +4,7 @@ import { useState } from "react";
 import CheckoutForm from "@/public/components/element/CheckoutForm";
 import { stripePromise } from "@/public/lib/stripe";
 import { Elements } from "@stripe/react-stripe-js";
+import PaymentHeader from "@/public/components/common/PaymentHeader";
 
 export default function CheckoutPage() {
     const [amount, setAmount] = useState(1000); // in smallest unit
@@ -19,28 +20,11 @@ export default function CheckoutPage() {
     };
 
     return (
-        <div className="min-h-screen bg-gradient-to-br from-purple-500 via-pink-300 to-pink-200 font-sans antialiased">
-            {/* Header */}
-            <header className="w-full bg-white/70 backdrop-blur-xl border-b border-white/20 sticky top-0 z-50">
-                <div className="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
-                    <div className="flex items-center gap-2">
-                        <div className="w-8 h-8 bg-indigo-600 rounded-lg flex items-center justify-center shadow-indigo-200 shadow-lg">
-                            <span className="text-white font-black text-xs">S</span>
-                        </div>
-                        <h1 className="text-lg font-bold bg-clip-text text-transparent bg-gradient-to-r from-gray-900 to-gray-600">
-                            Stripe Pay
-                        </h1>
-                    </div>
-                    <div className="flex items-center gap-2 bg-green-50 px-3 py-1 rounded-full border border-green-100">
-                        <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
-                        <span className="text-xs font-semibold text-green-700 uppercase tracking-wider">Secure Payment</span>
-                    </div>
-                </div>
-            </header>
+        <div className="min-h-screen font-sans antialiased">
+            <PaymentHeader name="Stripe Element" />
 
             {/* Main */}
             <main className="max-w-4xl mx-auto p-6 md:p-12 flex flex-col items-center gap-10">
-
                 {/* 🔧 Controls Card */}
                 <div className="w-full max-w-lg bg-white/60 backdrop-blur-md rounded-3xl shadow-xl shadow-indigo-100/50 border border-white p-8 transition-all hover:shadow-2xl hover:shadow-indigo-200/40">
                     <h2 className="text-sm font-bold text-gray-900 uppercase tracking-widest mb-6">
@@ -98,8 +82,6 @@ export default function CheckoutPage() {
 
                 {/* 💳 Payment Card */}
                 <div className="w-full max-w-lg bg-white rounded-[2rem] shadow-[0_20px_50px_rgba(0,0,0,0.1)] border border-gray-50 overflow-hidden relative">
-                    <div className="h-2 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 w-full" />
-
                     <div className="px-10 py-10">
                         <div className="text-center mb-10">
                             <h2 className="text-2xl font-black text-gray-900 tracking-tight">
@@ -129,12 +111,6 @@ export default function CheckoutPage() {
                             >
                                 <CheckoutForm amount={amount} currency={currency} />
                             </Elements>
-                        </div>
-
-                        <div className="mt-8 flex justify-center items-center gap-4 opacity-40 grayscale">
-                            <div className="h-6 w-10 bg-gray-200 rounded" />
-                            <div className="h-6 w-10 bg-gray-200 rounded" />
-                            <div className="h-6 w-10 bg-gray-200 rounded" />
                         </div>
                     </div>
                 </div>

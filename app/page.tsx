@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-br from-purple-500 via-pink-300 to-pink-200 font-sans px-4">
+    <div className="flex min-h-screen flex-col items-center justify-center font-sans px-4">
 
       {/* Title */}
       <h1 className="mb-2 text-4xl font-serif text-black">
@@ -24,7 +24,7 @@ export default function Home() {
             Custom Stripe Payment Element integration
           </p>
           <Link href="/element">
-            <button className="rounded-lg bg-purple-600 px-5 py-2 text-white hover:bg-purple-700 transition">
+            <button className="rounded-lg border border-grey-600 px-5 py-2 text-black hover:bg-grey-700 transition">
               Open
             </button>
           </Link>
@@ -37,7 +37,7 @@ export default function Home() {
             Stripe hosted checkout page flow
           </p>
           <Link href="/checkout">
-            <button className="rounded-lg bg-purple-600 px-5 py-2 text-white hover:bg-purple-700 transition">
+            <button className="rounded-lg border border-grey-900 px-5 py-2 text-black hover:bg-grey-700 transition">
               Open
             </button>
           </Link>
@@ -50,7 +50,7 @@ export default function Home() {
             Generate and share Stripe payment links
           </p>
           <Link href="/payment-link">
-            <button className="rounded-lg bg-purple-600 px-5 py-2 text-white hover:bg-purple-700 transition">
+            <button className="rounded-lg border border-grey-900 px-5 py-2 text-black hover:bg-grey-700 transition">
               Open
             </button>
           </Link>
@@ -78,8 +78,8 @@ export default function Home() {
           {/* Label for the Email */}
           <span className="text-[10px] font-bold text-indigo-400 uppercase tracking-[0.2em] mb-1">Developer Contact</span>
 
-          <div className="group relative inline-flex items-center gap-3 rounded-2xl bg-gray-900 px-8 py-4 text-white shadow-xl transition-all hover:bg-black hover:-translate-y-1 active:scale-95 duration-300">
-            <span className="font-mono text-sm font-medium tracking-tight">
+          <div className="group relative inline-flex items-center gap-3 rounded-2xl bg-white-900 px-8 py-4 text-white shadow-xl transition-all hover:bg-white hover:-translate-y-1 active:scale-95 duration-300">
+            <span className="font-mono text-sm text-black font-medium tracking-tight">
               praveenjeeru68@gmail.com
             </span>
 

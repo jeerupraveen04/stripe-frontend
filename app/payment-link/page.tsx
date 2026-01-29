@@ -1,5 +1,6 @@
 "use client";
 
+import PaymentHeader from "@/public/components/common/PaymentHeader";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 
@@ -55,94 +56,100 @@ export default function PaymentLinkPage() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-indigo-500 via-purple-400 to-pink-300 p-4">
-      <div className="w-full max-w-lg rounded-2xl bg-white p-8 shadow-xl">
-        <h1 className="text-2xl font-semibold text-center mb-2 text-gray-800">
-          Create Payment Link
-        </h1>
-        <p className="text-center text-gray-500 mb-6">
-          Generate a Stripe Payment Link instantly
-        </p>
+    <div className="min-h-screen flex flex-col bg-gray-50">
+      <PaymentHeader name="Stripe Payment Link" />
 
-        <form className="space-y-4" onSubmit={handleSubmit(onSubmit)}>
-          {/* Title */}
-          <div>
-            <label className="block text-sm font-medium mb-1 text-gray-700">
-              Product / Payment Title
-            </label>
-            <input
-              {...register("title", { required: true })}
-              className="w-full rounded-lg border px-4 py-2 text-black"
-            />
-            {errors.title && (
-              <p className="text-red-500 text-sm">Title is required</p>
-            )}
-          </div>
+      <div className="flex-1 flex items-center justify-center p-4">
+        <div className="w-full max-w-lg rounded-2xl bg-white p-8 shadow-xl">
+          <h1 className="text-2xl font-semibold text-center mb-2 text-gray-800">
+            Create Payment Link
+          </h1>
+          <p className="text-center text-gray-500 mb-6">
+            Generate a Stripe Payment Link instantly
+          </p>
 
-          {/* Description */}
-          <div>
-            <label className="block text-sm font-medium mb-1 text-gray-700">
-              Description
-            </label>
-            <textarea
-              {...register("description")}
-              className="w-full rounded-lg border px-4 py-2 text-black"
-            />
-          </div>
+          <form className="space-y-4" onSubmit={handleSubmit(onSubmit)}>
+            {/* Title */}
+            <div>
+              <label className="block text-sm font-medium mb-1 text-gray-700">
+                Product / Payment Title
+              </label>
+              <input
+                {...register("title", { required: true })}
+                className="w-full rounded-lg border px-4 py-2 text-black"
+              />
+              {errors.title && (
+                <p className="text-red-500 text-sm">Title is required</p>
+              )}
+            </div>
 
-          {/* Custom Email */}
-          <div>
-            <label className="block text-sm font-medium mb-1 text-gray-700">
-              Customer Email ()
-            </label>
-            <input
-              type="email"
-              {...register("email")}
-              className="w-full rounded-lg border px-4 py-2 text-black"
-            />
-          </div>
+            {/* Description */}
+            <div>
+              <label className="block text-sm font-medium mb-1 text-gray-700">
+                Description
+              </label>
+              <textarea
+                {...register("description")}
+                className="w-full rounded-lg border px-4 py-2 text-black"
+              />
+            </div>
 
-          {/* Amount */}
-          <div>
-            <label className="block text-sm font-medium mb-1 text-gray-700">
-              Amount
-            </label>
-            <input
-              type="number"
-              {...register("amount", { required: true, min: 1 })}
-              className="w-full rounded-lg border px-4 py-2 text-black"
-            />
-            {errors.amount && (
-              <p className="text-red-500 text-sm">Valid amount required</p>
-            )}
-          </div>
+            {/* Custom Email */}
+            <div>
+              <label className="block text-sm font-medium mb-1 text-gray-700">
+                Customer Email ()
+              </label>
+              <input
+                type="email"
+                {...register("email")}
+                className="w-full rounded-lg border px-4 py-2 text-black"
+              />
+            </div>
 
-          {/* Currency */}
-          <div>
-            <label className="block text-sm font-medium mb-1 text-gray-700">
-              Currency
-            </label>
-            <select
-              {...register("currency", { required: true })}
-              className="w-full rounded-lg border px-4 py-2 text-black"
+            {/* Amount */}
+            <div>
+              <label className="block text-sm font-medium mb-1 text-gray-700">
+                Amount
+              </label>
+              <input
+                type="number"
+                {...register("amount", { required: true, min: 1 })}
+                className="w-full rounded-lg border px-4 py-2 text-black"
+              />
+              {errors.amount && (
+                <p className="text-red-500 text-sm">Valid amount required</p>
+              )}
+            </div>
+
+            {/* Currency */}
+            <div>
+              <label className="block text-sm font-medium mb-1 text-gray-700">
+                Currency
+              </label>
+              <select
+                {...register("currency", { required: true })}
+                className="w-full rounded-lg border px-4 py-2 text-black"
+              >
+                <option value="USD">USD</option>
+                <option value="EUR">EUR</option>
+                <option value="GBP">GBP</option>
+                <option value="INR">INR</option>
+                <option value="JPY">JPY</option>
+              </select>
+            </div>
+
+            <button
+              disabled={loading}
+              type="submit"
+              className="w-full rounded-lg bg-indigo-600 py-3 text-white font-semibold hover:bg-indigo-700 transition disabled:opacity-50"
             >
-              <option value="USD">USD</option>
-              <option value="EUR">EUR</option>
-              <option value="GBP">GBP</option>
-              <option value="INR">INR</option>
-              <option value="JPY">JPY</option>
-            </select>
-          </div>
-
-          <button
-            disabled={loading}
-            type="submit"
-            className="w-full rounded-lg bg-indigo-600 py-3 text-white font-semibold hover:bg-indigo-700 transition disabled:opacity-50"
-          >
-            {loading ? "Creating Link..." : "Create Payment Link"}
-          </button>
-        </form>
+              {loading ? "Creating Link..." : "Create Payment Link"}
+            </button>
+          </form>
+        </div>
       </div>
+
     </div>
+
   );
 }

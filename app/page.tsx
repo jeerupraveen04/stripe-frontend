@@ -5,7 +5,7 @@ export default function Home() {
     <div className="flex min-h-screen flex-col items-center justify-center font-sans px-4">
 
       {/* Title */}
-      <h1 className="mb-2 text-4xl font-serif text-black">
+      <h1 className="mb-2 text-4xl font-serif text-black font-bold text-center">
         Stripe Payment Gateway
       </h1>
 
@@ -18,39 +18,43 @@ export default function Home() {
       <div className="grid grid-cols-1 gap-6 md:grid-cols-3 mb-12">
 
         {/* UI Elements - Disabled */}
-        <div className="group relative rounded-2xl bg-white p-6 shadow-lg text-center ">
+        <div className="group relative rounded-2xl bg-grey-700 p-6 shadow-2xl display-bright text-center ">
           <h2 className="text-xl font-semibold mb-3 text-gray-800">UI Elements</h2>
           <p className="text-gray-600 mb-4 tex-gray-600">
             Custom Stripe Payment Element integration
           </p>
           <Link href="/element">
-            <button className="rounded-lg border border-grey-600 px-5 py-2 text-black hover:bg-grey-700 transition">
+            <button
+            className="rounded-lg border border-gray-900 px-5 py-2 text-black hover:text-white hover:bg-gray-700 transition-colors duration-200">
               Open
             </button>
           </Link>
         </div>
 
         {/* Checkout - Enabled */}
-        <div className="rounded-2xl bg-white p-6 shadow-lg text-center">
+        <div className="group relative rounded-2xl bg-grey-700 p-6 shadow-2xl display-bright text-center ">
           <h2 className="text-xl font-semibold mb-3 text-gray-800">Checkout</h2>
           <p className="text-gray-600 mb-4">
             Stripe hosted checkout page flow
           </p>
           <Link href="/checkout">
-            <button className="rounded-lg border border-grey-900 px-5 py-2 text-black hover:bg-grey-700 transition">
+            <button
+              className="rounded-lg border border-gray-900 px-5 py-2 text-black hover:text-white hover:bg-gray-700 transition-colors duration-200"
+            >
               Open
             </button>
           </Link>
+
         </div>
 
         {/* Pay by Link - Disabled */}
-        <div className="group relative rounded-2xl bg-white p-6 shadow-lg text-center">
+        <div className="group relative rounded-2xl bg-grey-700 p-6 shadow-2xl display-bright text-center ">
           <h2 className="text-xl font-semibold mb-3 text-gray-800">Pay by Link</h2>
           <p className="text-gray-600 mb-4">
             Generate and share Stripe payment links
           </p>
           <Link href="/payment-link">
-            <button className="rounded-lg border border-grey-900 px-5 py-2 text-black hover:bg-grey-700 transition">
+            <button className="rounded-lg border border-gray-900 px-5 py-2 text-black hover:text-white hover:bg-gray-700 transition-colors duration-200">
               Open
             </button>
           </Link>
